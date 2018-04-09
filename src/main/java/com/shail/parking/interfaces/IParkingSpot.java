@@ -1,5 +1,8 @@
 package com.shail.parking;
 
+import com.shail.parking.Enums.VehicleSize;
+import com.shail.parking.Exceptions.VehicleNotFoundException;
+
 /**
  * An interface for a parking spot that provides space for vehicles to be parked
  * @author Shail Shah
