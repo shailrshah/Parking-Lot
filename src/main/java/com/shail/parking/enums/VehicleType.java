@@ -21,6 +21,7 @@ public enum VehicleType {
 	}
 
 	/**
+	 * Get the size of the vehicle
 	 * @return the size of the vehicle
 	 */
 	public Size getSize(){

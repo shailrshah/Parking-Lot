@@ -23,6 +23,7 @@ public class Vehicle implements IVehicle {
 
 	/**
 	 * Constructor for making a Vehicle
+	 *
 	 * @param licensePlate the license plate number of the vehicle
 	 * @param type the type of vehicle
 	 */
@@ -33,6 +34,8 @@ public class Vehicle implements IVehicle {
 	}
 
 	/**
+	 * Get this vehicles's license plate number
+	 *
 	 * @return this vehicles's license plate number
 	 */
 	@Override
@@ -41,6 +44,8 @@ public class Vehicle implements IVehicle {
 	}
 
 	/**
+	 * Get the size of the vehicle
+	 *
 	 * @return the size of the vehicle
 	 */
 	@Override
@@ -49,6 +54,8 @@ public class Vehicle implements IVehicle {
 	}
 
 	/**
+	 * Get whether the vehicle has a handicap parking permit
+	 *
 	 * @return true if the vehicle has a handicap parking permit
 	 */
 	@Override
@@ -74,6 +81,7 @@ public class Vehicle implements IVehicle {
 
 	/**
 	 * Get a list of parking spots that are vacant and that can fit this vehicle
+	 *
 	 * @param parkingSpots a set of parking spots
 	 * @return a list of parking spots that are vacant and able to fit this vehicle
 	 * @throws ParkingSpotNotFoundException if no such parking spot is available at the moment
@@ -93,6 +101,7 @@ public class Vehicle implements IVehicle {
 
 	/**
 	 * Get a list of parking spots that match this vehicle's handicap parking permission
+	 *
 	 * @param parkingSpots a list of parking spots
 	 * @return a list of parking spots that match this vehicle's handicap parking permission
 	 * @throws ParkingSpotNotFoundException if no parking spot is available

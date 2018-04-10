@@ -67,6 +67,7 @@ public class ParkingSpotTest {
 
 	/**
 	 * Test to park vehicle
+	 *
 	 * @throws ParkingException when vehicle cannot be parked in the parking spot
 	 */
 	@Test
@@ -80,6 +81,7 @@ public class ParkingSpotTest {
 
 	/**
 	 * Test parking a vehicle that is too big to be parked in a parking spot
+	 *
 	 * @throws ParkingException when the vehicle can't be parked in the parking spot
 	 */
 	@Test (expected = ParkingException.class)
