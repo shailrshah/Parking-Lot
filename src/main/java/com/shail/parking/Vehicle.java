@@ -88,7 +88,7 @@ public class Vehicle implements IVehicle {
 	 */
 	private List<IParkingSpot> getVacantParkingSpots(Collection<IParkingSpot> parkingSpots) throws ParkingSpotNotFoundException {
 		Predicate<IParkingSpot> filterPredicateVacant = ps -> ps.isVacant()
-				&& ps.getSize().getVal() >= type.getSize().getVal();
+				&& ps.getSize().ordinal() >= type.getSize().ordinal();
 
 		List<IParkingSpot> vacantParkingSpots = parkingSpots.stream()
 				.filter(filterPredicateVacant)
