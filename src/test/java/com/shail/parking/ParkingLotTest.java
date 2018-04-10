@@ -107,7 +107,7 @@ public class ParkingLotTest {
 	}
 
 	/**
-	 * Test for finding a parking spot of an unparked car
+	 * Test for finding a parking spot of an un-parked car
 	 * @throws ParkingSpotNotFoundException if the parking spot is not found
 	 */
 	@Test(expected = ParkingSpotNotFoundException.class)

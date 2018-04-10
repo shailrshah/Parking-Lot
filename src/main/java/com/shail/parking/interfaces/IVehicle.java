@@ -3,7 +3,7 @@ package com.shail.parking.interfaces;
 import com.shail.parking.enums.Size;
 import com.shail.parking.exceptions.ParkingSpotNotFoundException;
 
-import java.util.Set;
+import java.util.Collection;
 
 /**
  * A class implementing IVehicle represents a vehicle
@@ -29,9 +29,9 @@ public interface IVehicle {
 	/**
 	 * Pick the best parking spot from all the parking spots in the parking lot
 	 *
-	 * @param parkingSpots a set of parking spots
+	 * @param parkingSpots a collection of parking spots
 	 * @return a parking spot from the given parking spots that can be used by the vehicle to park it in
 	 * @throws ParkingSpotNotFoundException when a parking spot is not found
 	 */
-	IParkingSpot pickBestParking(Set<IParkingSpot> parkingSpots) throws ParkingSpotNotFoundException;
+	IParkingSpot pickBestParking(Collection<IParkingSpot> parkingSpots) throws ParkingSpotNotFoundException;
 }

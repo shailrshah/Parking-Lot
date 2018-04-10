@@ -7,8 +7,8 @@ import com.shail.parking.interfaces.IParkingLot;
 import com.shail.parking.interfaces.IParkingSpot;
 import com.shail.parking.interfaces.IVehicle;
 
+import java.util.Collection;
 import java.util.HashSet;
-import java.util.Set;
 import java.util.function.Predicate;
 
 /**
@@ -17,28 +17,28 @@ import java.util.function.Predicate;
  */
 public class ParkingLot implements IParkingLot {
 
-	private final Set<IParkingSpot> parkingSpotsVacant;
-	private final Set<IParkingSpot> parkingSpotsOccupied;
+	private final Collection<IParkingSpot> parkingSpotsVacant;
+	private final Collection<IParkingSpot> parkingSpotsOccupied;
 
 	/**
 	 * Constructor for creating a new ParkingLot
 	 */
-	public ParkingLot() {
+	ParkingLot() {
 		parkingSpotsVacant = new HashSet<>();
 		parkingSpotsOccupied = new HashSet<>();
 	}
 
 	/**
-	 * @return a set of parking spots that are vacant
+	 * @return a collection of parking spots that are vacant
 	 */
-	public Set<IParkingSpot> getParkingSpotsVacant(){
+	public Collection<IParkingSpot> getParkingSpotsVacant(){
 		return parkingSpotsVacant;
 	}
 
 	/**
-	 * @return a set of parking spots that are occupied
+	 * @return a collection of parking spots that are occupied
 	 */
-	public Set<IParkingSpot> getParkingSpotsOccupied() {
+	public Collection<IParkingSpot> getParkingSpotsOccupied() {
 		return parkingSpotsOccupied;
 	}
 
@@ -50,7 +50,7 @@ public class ParkingLot implements IParkingLot {
 	@Override
 	public void addParkingSpot(IParkingSpot parkingSpot) throws DuplicateParkingSpotException {
 		if(parkingSpotsVacant.contains(parkingSpot) || parkingSpotsOccupied.contains(parkingSpot))
-			throw new DuplicateParkingSpotException("A parking spot with the same Id already exists");
+			throw new DuplicateParkingSpotException(DuplicateParkingSpotException.DEFAULT_MESSAGE);
 		parkingSpotsVacant.add(parkingSpot);
 	}
 
@@ -115,7 +115,7 @@ public class ParkingLot implements IParkingLot {
 		IParkingSpot parkingSpot = findParkingSpot(predicate);
 
 		if(parkingSpot == null)
-			throw new ParkingSpotNotFoundException("The specified vehicle is not in the parking lot");
+			throw new ParkingSpotNotFoundException(ParkingSpotNotFoundException.DEFAULT_MESSAGE);
 		else return parkingSpot;
 	}
 
@@ -131,7 +131,7 @@ public class ParkingLot implements IParkingLot {
 		IParkingSpot parkingSpot = findParkingSpot(predicate);
 
 		if(parkingSpot == null)
-			throw new ParkingSpotNotFoundException("The specified vehicle is not in the parking lot");
+			throw new ParkingSpotNotFoundException(ParkingSpotNotFoundException.DEFAULT_MESSAGE);
 		else return parkingSpot;
 	}
 
