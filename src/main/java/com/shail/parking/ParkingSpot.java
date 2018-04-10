@@ -103,7 +103,7 @@ public class ParkingSpot implements IParkingSpot {
 	 */
 	private boolean canPark(IVehicle vehicle) {
 		return (vehicle.hasHandicapParkingPermit() || !isForHandicap)
-				&& vehicle.getSize().getVal() <= size.getVal();
+				&& vehicle.getSize().ordinal() <= size.ordinal();
 	}
 
 	/**
