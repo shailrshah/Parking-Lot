@@ -54,6 +54,7 @@ public interface IParkingLot {
 	 * Find which parking spot the given vehicle is parked in
 	 * @param vehicle a vehicle to find
 	 * @return the location of the parked vehicle
+	 * @throws ParkingSpotNotFoundException when a the parking spot containing the vehicle is not found
 	 */
 	IParkingSpot findParkingSpot(IVehicle vehicle) throws ParkingSpotNotFoundException;
 
@@ -61,6 +62,7 @@ public interface IParkingLot {
 	 * Search for a parking spot by Id
 	 * @param id the id of the parking spot
 	 * @return the instance of the ParkingSpot that has the mentioned id
+	 * @throws ParkingSpotNotFoundException when a the parking spot containing the vehicle is not found
 	 */
 	IParkingSpot findParkingSpot(int id) throws ParkingSpotNotFoundException;
 }
