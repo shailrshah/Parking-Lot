@@ -77,7 +77,7 @@ public class Vehicle implements IVehicle {
 					.filter(ps -> !ps.isForHandicap())
 					.collect(Collectors.toList());
 
-		if(vacantParkingSpotsHandicap == null || vacantParkingSpotsHandicap.size() == 0)
+		if(vacantParkingSpotsHandicap == null || vacantParkingSpotsHandicap.isEmpty())
 			throw new ParkingSpotNotFoundException("No suitable parking spot found.");
 
 		vacantParkingSpotsHandicap.sort(Comparator.comparing(IParkingSpot::getSize));

@@ -45,7 +45,7 @@ public class ParkingLotTest {
 	 */
 	@Test
 	public void addRemoveParkingSpot() throws DuplicateParkingSpotException, ParkingSpotNotFoundException {
-		int initialVacantCount = parkingLot.getParkingSpotsVacant().size();
+		long initialVacantCount = parkingLot.getParkingSpotsVacant().size();
 		parkingLot.addParkingSpot(new ParkingSpot(100, Size.MEDIUM, true));
 		assertEquals(initialVacantCount+1, parkingLot.getParkingSpotsVacant().size());
 		parkingLot.removeParkingSpot(100);
@@ -70,8 +70,8 @@ public class ParkingLotTest {
 	@Test
 	public void parkRemoveVehicle() throws ParkingSpotNotFoundException, ParkingException {
 		IVehicle vehicle = new Vehicle("MH1294", VehicleType.CAR, true);
-		int initialVacantCount = parkingLot.getParkingSpotsVacant().size();
-		int initialOccupiedCount = parkingLot.getParkingSpotsOccupied().size();
+		long initialVacantCount = parkingLot.getParkingSpotsVacant().size();
+		long initialOccupiedCount = parkingLot.getParkingSpotsOccupied().size();
 
 		parkingLot.parkVehicle(vehicle);
 		assertTrue(parkingLot.getParkingSpotsOccupied().contains(parkingLot.findParkingSpot(vehicle)));
@@ -101,9 +101,18 @@ public class ParkingLotTest {
 	 */
 	@Test
 	public void findParkingSpotVehicle() throws ParkingSpotNotFoundException, ParkingException {
-		IVehicle vehicle = new Vehicle("MH1294", VehicleType.CAR, true);
+		IVehicle vehicle = new Vehicle("MH1212", VehicleType.CAR, true);
 		IParkingSpot parkingSpot = parkingLot.parkVehicle(vehicle);
 		assertEquals(parkingSpot, parkingLot.findParkingSpot(vehicle));
+	}
+
+	/**
+	 * Test for finding a parking spot of an unparked car
+	 * @throws ParkingSpotNotFoundException if the parking spot is not found
+	 */
+	@Test(expected = ParkingSpotNotFoundException.class)
+	public void findParkingSpotVehicleException() throws ParkingSpotNotFoundException {
+		parkingLot.findParkingSpot(new Vehicle("MH1211", VehicleType.CAR, true));
 	}
 
 	/**
@@ -114,5 +123,14 @@ public class ParkingLotTest {
 	public void findParkingSpotId() throws ParkingSpotNotFoundException {
 		IParkingSpot parkingSpot = parkingLot.findParkingSpot(1);
 		assertEquals(1, parkingSpot.getId());
+	}
+
+	/**
+	 * Test for trying to find a parking spot with a non-existent id
+	 * @throws ParkingSpotNotFoundException if the parking spot is not found
+	 */
+	@Test(expected = ParkingSpotNotFoundException.class)
+	public void findParkingSpotIdException() throws ParkingSpotNotFoundException{
+		parkingLot.findParkingSpot(1421);
 	}
 }

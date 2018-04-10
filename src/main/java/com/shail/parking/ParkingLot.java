@@ -62,8 +62,6 @@ public class ParkingLot implements IParkingLot {
 	@Override
 	public void removeParkingSpot(int id) throws ParkingSpotNotFoundException {
 		IParkingSpot parkingSpot = findParkingSpot(id);
-		if(parkingSpot == null)
-			throw new ParkingSpotNotFoundException("No Parking spot with the specified parking spot available");
 		parkingSpotsOccupied.remove(parkingSpot);
 		parkingSpotsVacant.remove(parkingSpot);
 	}
@@ -112,7 +110,8 @@ public class ParkingLot implements IParkingLot {
 	 */
 	@Override
 	public IParkingSpot findParkingSpot(IVehicle vehicle) throws ParkingSpotNotFoundException {
-		Predicate<IParkingSpot> predicate = ps->ps.getCurrentVehicle().equals(vehicle);
+		Predicate<IParkingSpot> predicate = ps->ps.getCurrentVehicle()!=null
+				&& ps.getCurrentVehicle().equals(vehicle);
 		IParkingSpot parkingSpot = findParkingSpot(predicate);
 
 		if(parkingSpot == null)
