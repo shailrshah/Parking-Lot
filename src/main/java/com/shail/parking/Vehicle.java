@@ -78,7 +78,7 @@ public class Vehicle implements IVehicle {
 					.collect(Collectors.toList());
 
 		if(vacantParkingSpotsHandicap == null || vacantParkingSpotsHandicap.isEmpty())
-			throw new ParkingSpotNotFoundException("No suitable parking spot found.");
+			throw new ParkingSpotNotFoundException(ParkingSpotNotFoundException.DEFAULT_MESSAGE);
 
 		vacantParkingSpotsHandicap.sort(Comparator.comparing(IParkingSpot::getSize));
 
@@ -100,7 +100,7 @@ public class Vehicle implements IVehicle {
 				.collect(Collectors.toList());
 
 		if(vacantParkingSpots == null || vacantParkingSpots.isEmpty())
-			throw new ParkingSpotNotFoundException("No suitable parking spot found.");
+			throw new ParkingSpotNotFoundException(ParkingSpotNotFoundException.DEFAULT_MESSAGE);
 		else return vacantParkingSpots;
 	}
 }

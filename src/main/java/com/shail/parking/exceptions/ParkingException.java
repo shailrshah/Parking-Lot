@@ -7,6 +7,9 @@ package com.shail.parking.exceptions;
  * @author Shail Shah
  */
 public class ParkingException extends Exception {
+
+	public static final String DEFAULT_MESSAGE = "Count not park the car in the parking spot.";
+
 	/**
 	 * Constructor for creating a new ParkingException
 	 *

@@ -24,7 +24,6 @@ public class ParkingSpot implements IParkingSpot {
 	 * @param isForHandicap true if only to be used by people with handicap parking permits
 	 */
 	ParkingSpot(int id, Size size, boolean isForHandicap) {
-		super();
 		this.id = id;
 		this.size = size;
 		this.isForHandicap = isForHandicap;
@@ -73,7 +72,7 @@ public class ParkingSpot implements IParkingSpot {
 	 */
 	public void parkVehicle(IVehicle vehicle) throws ParkingException {
 		if(!canPark(vehicle))
-			throw new ParkingException("Cannot park here ");
+			throw new ParkingException(ParkingException.DEFAULT_MESSAGE);
 		currentVehicle = vehicle;
 	}
 

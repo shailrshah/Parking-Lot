@@ -7,6 +7,8 @@ package com.shail.parking.exceptions;
  */
 public class ParkingSpotNotFoundException extends Exception {
 
+	public static final String DEFAULT_MESSAGE = "Parking spot could not be found.";
+
 	/**
 	 * Constructor for creating a new ParkingSpotNotFoundException
 	 *

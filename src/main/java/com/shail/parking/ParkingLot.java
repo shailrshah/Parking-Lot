@@ -23,7 +23,7 @@ public class ParkingLot implements IParkingLot {
 	/**
 	 * Constructor for creating a new ParkingLot
 	 */
-	public ParkingLot() {
+	ParkingLot() {
 		parkingSpotsVacant = new HashSet<>();
 		parkingSpotsOccupied = new HashSet<>();
 	}
@@ -50,7 +50,7 @@ public class ParkingLot implements IParkingLot {
 	@Override
 	public void addParkingSpot(IParkingSpot parkingSpot) throws DuplicateParkingSpotException {
 		if(parkingSpotsVacant.contains(parkingSpot) || parkingSpotsOccupied.contains(parkingSpot))
-			throw new DuplicateParkingSpotException("A parking spot with the same Id already exists");
+			throw new DuplicateParkingSpotException(DuplicateParkingSpotException.DEFAULT_MESSAGE);
 		parkingSpotsVacant.add(parkingSpot);
 	}
 
@@ -115,7 +115,7 @@ public class ParkingLot implements IParkingLot {
 		IParkingSpot parkingSpot = findParkingSpot(predicate);
 
 		if(parkingSpot == null)
-			throw new ParkingSpotNotFoundException("The specified vehicle is not in the parking lot");
+			throw new ParkingSpotNotFoundException(ParkingSpotNotFoundException.DEFAULT_MESSAGE);
 		else return parkingSpot;
 	}
 
@@ -131,7 +131,7 @@ public class ParkingLot implements IParkingLot {
 		IParkingSpot parkingSpot = findParkingSpot(predicate);
 
 		if(parkingSpot == null)
-			throw new ParkingSpotNotFoundException("The specified vehicle is not in the parking lot");
+			throw new ParkingSpotNotFoundException(ParkingSpotNotFoundException.DEFAULT_MESSAGE);
 		else return parkingSpot;
 	}
 

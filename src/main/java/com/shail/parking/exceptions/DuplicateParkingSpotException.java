@@ -7,6 +7,8 @@ package com.shail.parking.exceptions;
  */
 public class DuplicateParkingSpotException extends Exception {
 
+	public static final String DEFAULT_MESSAGE = "A parking spot with the same id already exists.";
+
 	/**
 	 * Constructor for creating a new DuplicateParkingSpotException
 	 *
