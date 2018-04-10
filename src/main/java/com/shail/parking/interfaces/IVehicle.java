@@ -12,16 +12,22 @@ import java.util.Collection;
 public interface IVehicle {
 
 	/**
+	 * Get the license plate number
+	 *
 	 * @return this vehicles's license plate number
 	 */
 	String getLicensePlate();
 
 	/**
+	 * Get the size of the vehicle
+	 *
 	 * @return the size of the vehicle
 	 */
 	Size getSize();
 
 	/**
+	 * Get whether the vehicle is allowed to park in spots reserved for handicaps
+	 *
 	 * @return true if the vehicle has a handicap parking permit
 	 */
 	boolean hasHandicapParkingPermit();

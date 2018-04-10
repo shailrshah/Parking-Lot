@@ -31,6 +31,8 @@ public class ParkingSpot implements IParkingSpot {
 	}
 
 	/**
+	 * Get the id of this parking spot
+	 *
 	 * @return the id of this parking spot
 	 */
 	public int getId() {
@@ -38,6 +40,8 @@ public class ParkingSpot implements IParkingSpot {
 	}
 
 	/**
+	 * Get the maximum size of the vehicle that can be accommodated
+	 *
 	 * @return the maximum size of the vehicle that can be accommodated
 	 */
 	public Size getSize() {
@@ -45,6 +49,8 @@ public class ParkingSpot implements IParkingSpot {
 	}
 
 	/**
+	 * Get whether the parking spot is reserved for cars with handicap parking permits
+	 *
 	 * @return true if this parking spot is for cars with handicap parking permits only
 	 */
 	public boolean isForHandicap() {
@@ -52,6 +58,8 @@ public class ParkingSpot implements IParkingSpot {
 	}
 
 	/**
+	 * Get the vehicle that occupies the parking spot
+	 *
 	 * @return the Vehicle that is currently parked in this parking spot
 	 */
 	public IVehicle getCurrentVehicle() {
@@ -59,6 +67,8 @@ public class ParkingSpot implements IParkingSpot {
 	}
 
 	/**
+	 * Get whether the parking spot is vacant
+	 *
 	 * @return true if no Vehicle is parked in this parking spot
 	 */
 	public boolean isVacant() {
@@ -67,6 +77,7 @@ public class ParkingSpot implements IParkingSpot {
 
 	/**
 	 * Park a vehicle in this parking spot
+	 *
 	 * @param vehicle the vehicle to park
 	 * @exception ParkingException when vehicle is not allowed to park here
 	 */
@@ -86,6 +97,7 @@ public class ParkingSpot implements IParkingSpot {
 
 	/**
 	 * Can a vehicle park here?
+	 *
 	 * @param vehicle a vehicle
 	 * @return true if the vehicle can park here
 	 */
@@ -107,6 +119,8 @@ public class ParkingSpot implements IParkingSpot {
 	}
 
 	/**
+	 * Get the hashCode of this parking spot
+	 *
 	 * @return the hashCode of this parking spot
 	 */
 	@Override

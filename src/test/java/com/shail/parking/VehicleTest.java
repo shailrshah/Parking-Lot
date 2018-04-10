@@ -55,6 +55,7 @@ public class VehicleTest {
 
 	/**
 	 * Test for picking the best parking spot
+	 *
 	 * @throws ParkingSpotNotFoundException when a parking spot is not found
 	 */
 	@Test
@@ -71,6 +72,7 @@ public class VehicleTest {
 
 	/**
 	 * Test picking the best parking spot when nothing is available
+	 *
 	 * @throws ParkingSpotNotFoundException when no parking spot is available for the vehicle
 	 */
 	@Test(expected = ParkingSpotNotFoundException.class)

@@ -24,6 +24,7 @@ public class ParkingLotTest {
 
 	/**
 	 * Setup for all other tests
+	 *
 	 * @throws DuplicateParkingSpotException when identical parking spots are added
 	 */
 	@Before
@@ -40,6 +41,7 @@ public class ParkingLotTest {
 
 	/**
 	 * Test adding and removing parking spots
+	 *
 	 * @throws DuplicateParkingSpotException if identical spots are added
 	 * @throws ParkingSpotNotFoundException if spot is not found during deletion
 	 */
@@ -54,6 +56,7 @@ public class ParkingLotTest {
 
 	/**
 	 * Test adding duplicate parking spots
+	 *
 	 * @throws DuplicateParkingSpotException if identical spots are added
 	 */
 	@Test(expected = DuplicateParkingSpotException.class)
@@ -64,6 +67,7 @@ public class ParkingLotTest {
 
 	/**
 	 * Test parking and removing a vehicle
+	 *
 	 * @throws ParkingSpotNotFoundException if parking spot is not found for the vehicle
 	 * @throws ParkingException if the vehicle cannot be parked in a parking spot
 	 */
@@ -85,6 +89,7 @@ public class ParkingLotTest {
 
 	/**
 	 * Test parking when the lot is full
+	 *
 	 * @throws ParkingSpotNotFoundException if parking spot is not found for the vehicle
 	 * @throws ParkingException if the vehicle cannot be parked in a parking spot
 	 */
@@ -96,6 +101,7 @@ public class ParkingLotTest {
 
 	/**
 	 * Test finding a parking spot by the vehicle
+	 *
 	 * @throws ParkingSpotNotFoundException when the parking spot is not found
 	 * @throws ParkingException if the vehicle cannot be parked in a parking spot
 	 */
@@ -108,6 +114,7 @@ public class ParkingLotTest {
 
 	/**
 	 * Test for finding a parking spot of an un-parked car
+	 *
 	 * @throws ParkingSpotNotFoundException if the parking spot is not found
 	 */
 	@Test(expected = ParkingSpotNotFoundException.class)
@@ -117,6 +124,7 @@ public class ParkingLotTest {
 
 	/**
 	 * Test finding a parking spot by its id
+	 *
 	 * @throws ParkingSpotNotFoundException if the parking spot is not found
 	 */
 	@Test
@@ -127,6 +135,7 @@ public class ParkingLotTest {
 
 	/**
 	 * Test for trying to find a parking spot with a non-existent id
+	 *
 	 * @throws ParkingSpotNotFoundException if the parking spot is not found
 	 */
 	@Test(expected = ParkingSpotNotFoundException.class)

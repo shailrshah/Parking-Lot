@@ -21,6 +21,7 @@ public enum Size {
 	}
 
 	/**
+	 * Get the numeric value of this enum
 	 * @return the numeric value of this enum
 	 */
 	public int getVal() {

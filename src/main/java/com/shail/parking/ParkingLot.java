@@ -29,6 +29,8 @@ public class ParkingLot implements IParkingLot {
 	}
 
 	/**
+	 * Get a collection of parking spots that are vacant
+	 *
 	 * @return a collection of parking spots that are vacant
 	 */
 	public Collection<IParkingSpot> getParkingSpotsVacant(){
@@ -36,6 +38,8 @@ public class ParkingLot implements IParkingLot {
 	}
 
 	/**
+	 * Get the parking spots that are occupied in the parking lot
+	 *
 	 * @return a collection of parking spots that are occupied
 	 */
 	public Collection<IParkingSpot> getParkingSpotsOccupied() {
