@@ -7,8 +7,8 @@ import com.shail.parking.interfaces.IParkingLot;
 import com.shail.parking.interfaces.IParkingSpot;
 import com.shail.parking.interfaces.IVehicle;
 
+import java.util.Collection;
 import java.util.HashSet;
-import java.util.Set;
 import java.util.function.Predicate;
 
 /**
@@ -17,8 +17,8 @@ import java.util.function.Predicate;
  */
 public class ParkingLot implements IParkingLot {
 
-	private final Set<IParkingSpot> parkingSpotsVacant;
-	private final Set<IParkingSpot> parkingSpotsOccupied;
+	private final Collection<IParkingSpot> parkingSpotsVacant;
+	private final Collection<IParkingSpot> parkingSpotsOccupied;
 
 	/**
 	 * Constructor for creating a new ParkingLot
@@ -29,16 +29,16 @@ public class ParkingLot implements IParkingLot {
 	}
 
 	/**
-	 * @return a set of parking spots that are vacant
+	 * @return a collection of parking spots that are vacant
 	 */
-	public Set<IParkingSpot> getParkingSpotsVacant(){
+	public Collection<IParkingSpot> getParkingSpotsVacant(){
 		return parkingSpotsVacant;
 	}
 
 	/**
-	 * @return a set of parking spots that are occupied
+	 * @return a collection of parking spots that are occupied
 	 */
-	public Set<IParkingSpot> getParkingSpotsOccupied() {
+	public Collection<IParkingSpot> getParkingSpotsOccupied() {
 		return parkingSpotsOccupied;
 	}
 

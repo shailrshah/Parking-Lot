@@ -8,8 +8,8 @@ import com.shail.parking.interfaces.IVehicle;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.util.Collection;
 import java.util.HashSet;
-import java.util.Set;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
@@ -59,7 +59,7 @@ public class VehicleTest {
 	 */
 	@Test
 	public void pickBestParking() throws ParkingSpotNotFoundException {
-		Set<IParkingSpot> parkingSpots = new HashSet<>();
+		Collection<IParkingSpot> parkingSpots = new HashSet<>();
 
 		parkingSpots.add(new ParkingSpot(1, Size.SMALL, false));
 		parkingSpots.add(new ParkingSpot(2, Size.MEDIUM, true));

@@ -4,7 +4,7 @@ import com.shail.parking.exceptions.DuplicateParkingSpotException;
 import com.shail.parking.exceptions.ParkingException;
 import com.shail.parking.exceptions.ParkingSpotNotFoundException;
 
-import java.util.Set;
+import java.util.Collection;
 
 /**
  * An interface for a parking lot that has parking spaces for vehicles
@@ -13,14 +13,14 @@ import java.util.Set;
 public interface IParkingLot {
 
 	/**
-	 * @return a set of parking spots that are vacant
+	 * @return a collection of parking spots that are vacant
 	 */
-	Set<IParkingSpot> getParkingSpotsVacant();
+	Collection<IParkingSpot> getParkingSpotsVacant();
 
 	/**
-	 * @return a set of parking spots that are occupied
+	 * @return a collection of parking spots that are occupied
 	 */
-	Set<IParkingSpot> getParkingSpotsOccupied();
+	Collection<IParkingSpot> getParkingSpotsOccupied();
 
 	/**
 	 * Add a parking spot to the parking lot
