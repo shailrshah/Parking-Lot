@@ -1,27 +1,32 @@
 package com.shail.parking;
 
+import com.shail.parking.enums.Size;
+import com.shail.parking.enums.VehicleType;
+import com.shail.parking.exceptions.ParkingException;
+import com.shail.parking.interfaces.IParkingSpot;
 import org.junit.Before;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
 
 /**
- * Test ParkingSpot
+ * Tests for ParkingSpot
  * @author Shail Shah
  */
 public class ParkingSpotTest {
-	private ParkingSpot parkingSpot;
+
+	private IParkingSpot parkingSpot;
 
 	/**
-	 * Setup for the rest of the tests
+	 * Setup before the rest of the tests
 	 */
 	@Before
 	public void init() {
-		parkingSpot = new ParkingSpot(1, VehicleSize.MEDIUM, true);
+		parkingSpot = new ParkingSpot(1, Size.MEDIUM, false);
 	}
 
 	/**
-	 * Test for getting Id
+	 * Test to get Id of the parking spot
 	 */
 	@Test
 	public void getId() {
@@ -29,23 +34,23 @@ public class ParkingSpotTest {
 	}
 
 	/**
-	 * Test for getting size
+	 * Test to get the size of the parking spot
 	 */
 	@Test
 	public void getSize() {
-		assertEquals(VehicleSize.MEDIUM, parkingSpot.getSize());
+		assertEquals(Size.MEDIUM, parkingSpot.getSize());
 	}
 
 	/**
-	 * Test for seeing if handicap
+	 * Test to check if parking spot is reserved for handicaps
 	 */
 	@Test
 	public void isForHandicap() {
-		assertTrue(parkingSpot.isForHandicap());
+		assertFalse(parkingSpot.isForHandicap());
 	}
 
 	/**
-	 * Test for getting current vehicle
+	 * Test to get current vehicle in the parking spot
 	 */
 	@Test
 	public void getCurrentVehicle() {
@@ -53,7 +58,7 @@ public class ParkingSpotTest {
 	}
 
 	/**
-	 * Test for checking if vacant
+	 * Test to check if parking spot is vacant
 	 */
 	@Test
 	public void isVacant() {
@@ -61,18 +66,41 @@ public class ParkingSpotTest {
 	}
 
 	/**
-	 * Check for parking and unparking
-	 * @throws VehicleNotFoundException if there is no car in the parking
+	 * Test to park vehicle
+	 * @throws ParkingException when vehicle cannot be parked in the parking spot
 	 */
 	@Test
-	public void parkVehicle() throws VehicleNotFoundException{
-		Vehicle car = new Car("ABC123", true);
+	public void parkVehicle() throws ParkingException {
+		Vehicle car = new Vehicle("MH1283", VehicleType.CAR, true);
 		parkingSpot.parkVehicle(car);
+		assertEquals(car, parkingSpot.getCurrentVehicle());
 		parkingSpot.removeCurrentVehicle();
+		assertTrue(parkingSpot.isVacant());
 	}
 
-	@Test(expected = VehicleNotFoundException.class)
-	public void removeVehicleNull() throws VehicleNotFoundException {
-		parkingSpot.removeCurrentVehicle();
+	/**
+	 * Test parking a vehicle that is too big to be parked in a parking spot
+	 * @throws ParkingException when the vehicle can't be parked in the parking spot
+	 */
+	@Test (expected = ParkingException.class)
+	public void removeCurrentVehicle() throws ParkingException {
+		parkingSpot.parkVehicle(new Vehicle("MH1294", VehicleType.BUS, false));
+	}
+
+	/**
+	 * Test equality of two parking spots
+	 */
+	@Test
+	public void equals() {
+		ParkingSpot duplicateParkingSpot = new ParkingSpot(1, Size.LARGE, true);
+		assertEquals(duplicateParkingSpot, parkingSpot);
+	}
+
+	/**
+	 * Test weather returned hashcode
+	 */
+	@Test
+	public void testHashCode() {
+		assertEquals(1,parkingSpot.hashCode());
 	}
 }

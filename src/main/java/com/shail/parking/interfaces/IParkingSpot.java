@@ -1,4 +1,7 @@
-package com.shail.parking;
+package com.shail.parking.interfaces;
+
+import com.shail.parking.enums.Size;
+import com.shail.parking.exceptions.ParkingException;
 
 /**
  * An interface for a parking spot that provides space for vehicles to be parked
@@ -14,20 +17,20 @@ public interface IParkingSpot {
 	/**
 	 * @return the maximum size of the vehicle that can be accommodated
 	 */
-	VehicleSize getSize();
+	Size getSize();
 
 	/**
-	 * @return true if this parking spot is for cars with hadicap parking permits only
+	 * @return true if this parking spot is for cars with handicap parking permits only
 	 */
 	boolean isForHandicap();
 
 	/**
-	 * @return the com.shail.parking.Vehicle that is currently parked in this parking spot
+	 * @return the Vehicle that is currently parked in this parking spot
 	 */
-	Vehicle getCurrentVehicle();
+	IVehicle getCurrentVehicle();
 
 	/**
-	 * @return true if no com.shail.parking.Vehicle is parked in this parking spot
+	 * @return true if no Vehicle is parked in this parking spot
 	 */
 	boolean isVacant();
 
@@ -35,11 +38,10 @@ public interface IParkingSpot {
 	 * Park a vehicle in this parking spot
 	 * @param vehicle the vehicle to park
 	 */
-	void parkVehicle(Vehicle vehicle);
+	void parkVehicle(IVehicle vehicle) throws ParkingException;
 
 	/**
 	 * Remove the currently parked vehicle from this parking spot
-	 * @throws VehicleNotFoundException if there is no vehicle in this parking spot
 	 */
-	void removeCurrentVehicle() throws VehicleNotFoundException ;
+	void removeCurrentVehicle();
 }
