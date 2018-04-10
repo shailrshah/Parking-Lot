@@ -1,4 +1,4 @@
-package com.shail.parking;
+package com.shail.parking.exceptions;
 
 /**
  * An ParkingSpotNotFoundException is thrown when
@@ -8,10 +8,11 @@ package com.shail.parking;
 public class ParkingSpotNotFoundException extends Exception {
 
 	/**
-	 * Constructor for creating a new com.shail.parking.ParkingSpotNotFoundException
+	 * Constructor for creating a new ParkingSpotNotFoundException
+	 *
 	 * @param message the message to print out
 	 */
-	ParkingSpotNotFoundException(String message) {
+	public ParkingSpotNotFoundException(String message) {
 		super(message);
 	}
 }

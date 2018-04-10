@@ -1,4 +1,4 @@
-package com.shail.parking;
+package com.shail.parking.exceptions;
 
 /**
  * A DuplicateParkingSpotException is thrown when
@@ -8,10 +8,11 @@ package com.shail.parking;
 public class DuplicateParkingSpotException extends Exception {
 
 	/**
-	 * The 
-	 * @param message
+	 * Constructor for creating a new DuplicateParkingSpotException
+	 *
+	 * @param message a message to printout
 	 */
-	DuplicateParkingSpotException(String message) {
+	public DuplicateParkingSpotException(String message) {
 		super(message);
 	}
 }
